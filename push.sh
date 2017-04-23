@@ -26,6 +26,9 @@ versions=( "${versions[@]%/}" )
 for version in "${versions[@]}"; do
 
   echo $version
+
+  docker ps a
+
   tag=$(cat $version/Dockerfile | grep "ENV NODE_VERSION" | cut -d' ' -f3)
 
   info "Tagging $tag..."
