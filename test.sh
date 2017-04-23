@@ -29,7 +29,7 @@ for version in "${versions[@]}"; do
   tag=$(cat $version/Dockerfile | grep "ENV NODE_VERSION" | cut -d' ' -f3)
 
   info "Testing NodeJS version $tag..."
-  docker run hypriot/rpi-node:$tag node --version
+  docker run thebuccaneersden/rpi-node:$tag node --version
 
   if [[ $? -gt 0 ]]; then
     fatal "Test of $tag failed!"
@@ -38,7 +38,7 @@ for version in "${versions[@]}"; do
   fi
 
   info "Testing Yarn..."
-  docker run hypriot/rpi-node:$tag yarn --version
+  docker run thebuccaneersden/rpi-node:$tag yarn --version
 
   if [[ $? -gt 0 ]]; then
     fatal "Test of $tag failed!"
@@ -50,7 +50,7 @@ for version in "${versions[@]}"; do
 
   for variant in "${variants[@]}"; do
     info "Testing NodeJS version $tag-$variant variant..."
-    docker run hypriot/rpi-node:$tag-$variant node --version
+    docker run thebuccaneersden/rpi-node:$tag-$variant node --version
 
     if [[ $? -gt 0 ]]; then
       fatal "Test of $tag-$variant failed!"
@@ -59,7 +59,7 @@ for version in "${versions[@]}"; do
     fi
 
     info "Testing Yarn-$variant variant..."
-    docker run hypriot/rpi-node:$tag yarn --version
+    docker run thebuccaneersden/rpi-node:$tag yarn --version
 
     if [[ $? -gt 0 ]]; then
       fatal "Test of $tag failed!"
