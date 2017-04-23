@@ -42,19 +42,19 @@ for version in "${versions[@]}"; do
   if [ $tag_major == "7" ]; then
     name=""
   fi
-  docker tag hypriot/rpi-node:$tag hypriot/rpi-node:$tag_major
-  docker tag hypriot/rpi-node:$tag hypriot/rpi-node:$tag_minor
-  docker tag hypriot/rpi-node:$tag hypriot/rpi-node:$tag_patch
-  docker push hypriot/rpi-node:$tag_major
-  docker push hypriot/rpi-node:$tag_major
-  docker push hypriot/rpi-node:$tag_minor
-  docker push hypriot/rpi-node:$tag_patch
+  docker tag thebuccaneersden/rpi-node:$tag thebuccaneersden/rpi-node:$tag_major
+  docker tag thebuccaneersden/rpi-node:$tag thebuccaneersden/rpi-node:$tag_minor
+  docker tag thebuccaneersden/rpi-node:$tag thebuccaneersden/rpi-node:$tag_patch
+  docker push thebuccaneersden/rpi-node:$tag_major
+  docker push thebuccaneersden/rpi-node:$tag_major
+  docker push thebuccaneersden/rpi-node:$tag_minor
+  docker push thebuccaneersden/rpi-node:$tag_patch
   if [ -z $name ]; then
-    docker tag hypriot/rpi-node:$tag hypriot/rpi-node:latest
-    docker push hypriot/rpi-node:latest
+    docker tag thebuccaneersden/rpi-node:$tag thebuccaneersden/rpi-node:latest
+    docker push thebuccaneersden/rpi-node:latest
   else
-    docker tag hypriot/rpi-node:$tag hypriot/rpi-node:$name
-    docker push hypriot/rpi-node:$name
+    docker tag thebuccaneersden/rpi-node:$tag thebuccaneersden/rpi-node:$name
+    docker push thebuccaneersden/rpi-node:$name
   fi
 
   if [[ $? -gt 0 ]]; then
@@ -67,19 +67,19 @@ for version in "${versions[@]}"; do
 
   for variant in "${variants[@]}"; do
     info "Tagging $tag-$variant variant..."
-    docker tag hypriot/rpi-node:$tag-$variant hypriot/rpi-node:$tag_major-$variant
-    docker tag hypriot/rpi-node:$tag-$variant hypriot/rpi-node:$tag_minor-$variant
-    docker tag hypriot/rpi-node:$tag-$variant hypriot/rpi-node:$tag_patch-$variant
-    docker push hypriot/rpi-node:$tag-$variant
-    docker push hypriot/rpi-node:$tag_major-$variant
-    docker push hypriot/rpi-node:$tag_minor-$variant
-    docker push hypriot/rpi-node:$tag_patch-$variant
+    docker tag thebuccaneersden/rpi-node:$tag-$variant thebuccaneersden/rpi-node:$tag_major-$variant
+    docker tag thebuccaneersden/rpi-node:$tag-$variant thebuccaneersden/rpi-node:$tag_minor-$variant
+    docker tag thebuccaneersden/rpi-node:$tag-$variant thebuccaneersden/rpi-node:$tag_patch-$variant
+    docker push thebuccaneersden/rpi-node:$tag-$variant
+    docker push thebuccaneersden/rpi-node:$tag_major-$variant
+    docker push thebuccaneersden/rpi-node:$tag_minor-$variant
+    docker push thebuccaneersden/rpi-node:$tag_patch-$variant
     if [ -z $name ]; then
-      docker tag hypriot/rpi-node:$tag-$variant hypriot/rpi-node:$variant
-      docker push hypriot/rpi-node:$variant
+      docker tag thebuccaneersden/rpi-node:$tag-$variant thebuccaneersden/rpi-node:$variant
+      docker push thebuccaneersden/rpi-node:$variant
     else
-      docker tag hypriot/rpi-node:$tag-$variant hypriot/rpi-node:$name-$variant
-      docker push hypriot/rpi-node:$name-$variant
+      docker tag thebuccaneersden/rpi-node:$tag-$variant thebuccaneersden/rpi-node:$name-$variant
+      docker push thebuccaneersden/rpi-node:$name-$variant
     fi
 
     if [[ $? -gt 0 ]]; then
